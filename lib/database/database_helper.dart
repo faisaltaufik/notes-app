@@ -4,10 +4,12 @@ import '../models/note_model.dart';
 import '../models/user_model.dart';
 
 class DatabaseHelper {
+  // Singleton instance
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;
   DatabaseHelper._internal();
 
+  // configuration variables
   static Database? _database;
   final String databaseName = "note.db";
   final int databaseVersion = 1;
@@ -31,12 +33,7 @@ class DatabaseHelper {
     )
   ''';
 
-  Future<Database> get database async {
-    if (_database != null) return _database!;
-    _database = await initDB();
-    return _database!;
-  }
-
+  // Initialize the database
   Future<Database> initDB() async {
     final databasePath = await getDatabasesPath();
     final path = join(databasePath, databaseName);
@@ -51,12 +48,11 @@ class DatabaseHelper {
     );
   }
 
-  // Close database
-  Future<void> close() async {
-    if (_database != null) {
-      await _database!.close();
-      _database = null;
-    }
+  // Getter database instance
+  Future<Database> get database async {
+    if (_database != null) return _database!;
+    _database = await initDB();
+    return _database!;
   }
 
   // Login method
