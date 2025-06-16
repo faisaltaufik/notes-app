@@ -99,7 +99,7 @@ class _NotesScreenState extends State<NotesScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const CreateNoteScreen(),
@@ -183,7 +183,7 @@ class _NotesScreenState extends State<NotesScreen> {
                               ),
                               onTap: () {
                                 // Navigasi ke halaman lihat/update note
-                                Navigator.pushReplacement(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
