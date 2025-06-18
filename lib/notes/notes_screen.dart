@@ -43,6 +43,7 @@ class _NotesScreenState extends State<NotesScreen> {
               Navigator.pop(context);
 
               int result = await handler.deleteNote(noteId);
+
               if (!mounted) return;
 
               if (result > 0) {
@@ -86,11 +87,13 @@ class _NotesScreenState extends State<NotesScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const LoginScreen(),
                 ),
+                // Hapus semua route sebelumnya
+                (route) => false,
               );
             },
             icon: const Icon(Icons.logout),
