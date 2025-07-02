@@ -9,10 +9,10 @@ class UserModel {
     required this.userPassword,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> json) => UserModel(
-        userId: json["userId"],
-        userName: json["userName"],
-        userPassword: json["userPassword"],
+  factory UserModel.fromMap(Map<String, dynamic> map) => UserModel(
+        userId: map["userId"],
+        userName: map["userName"],
+        userPassword: map["userPassword"],
       );
 
   Map<String, dynamic> toMap() => {
