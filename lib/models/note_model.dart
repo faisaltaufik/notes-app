@@ -11,11 +11,11 @@ class NoteModel {
     required this.createdAt,
   });
 
-  factory NoteModel.fromMap(Map<String, dynamic> json) => NoteModel(
-        noteId: json["noteId"],
-        noteTitle: json["noteTitle"],
-        noteContent: json["noteContent"],
-        createdAt: json["createdAt"],
+  factory NoteModel.fromMap(Map<String, dynamic> map) => NoteModel(
+        noteId: map["noteId"],
+        noteTitle: map["noteTitle"],
+        noteContent: map["noteContent"],
+        createdAt: map["createdAt"],
       );
 
   Map<String, dynamic> toMap() => {
